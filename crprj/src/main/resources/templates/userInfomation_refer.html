@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common :: common_header('社員情報 | 社員情報管理 | 社内管理システム', ~{::link}, ~{::script})">
+  <meta charset="utf-8">
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+
+  <!--/* Navbar */-->
+  <nav th:replace="common :: common_navibar"></nav>
+  <!--/* /.navbar */-->
+
+  <!--/* Main Sidebar Container */-->
+  <aside th:replace="common :: common_sidebar"></aside>
+
+  <!--/* Content Wrapper. Contains page content */-->
+  <div class="content-wrapper">
+    <!--/* Content Header (Page header) */-->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">社員情報</h1>
+          </div>
+          <!--/* /.col */-->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/">Home</a></li>
+              <li class="breadcrumb-item"><a href="/userInfomation/">社員情報一覧</a></li>
+              <li class="breadcrumb-item active">社員情報</li>
+            </ol>
+          </div>
+          <!--/* /.col */-->
+        </div>
+        <!--/* /.row */-->
+      </div>
+      <!--/* /.container-fluid */-->
+    </div>
+    <!--/* /.content-header */-->
+
+    <!--/* Main content */-->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <!--/* column */-->
+          <div class="col-7 mx-auto">
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">社員情報</h3>
+              </div>
+              <!--/* /.card-header */-->
+              <!--/* form start */-->
+              <div th:object="${userInfoDto}">
+                <div class="card-body">
+                  <!--/* ユーザID */-->
+                  <div class="form-group">
+                    <label for="userId">ユーザID</label>
+                    <div>
+                      <p th:text="*{userId}"/></p>
+                    </div>
+                  </div>
+                  <input type="hidden" id="userId" name="userId" th:value="*{userId}" />
+                  <!--/* 名前 */-->
+                  <div class="form-group">
+                    <label for="name">名前</label>
+                    <div>
+                      <p th:text="*{name}"/></p>
+                    </div>
+                  </div>
+                  <input type="hidden" id="name" name="name" th:value="*{name}" />
+                  <!--/* 名前（カナ） */-->
+                  <div class="form-group">
+                    <label for="kana">名前（カナ）</label>
+                    <div>
+                      <p th:text="*{kana}"/></p>
+                    </div>
+                  </div>
+                  <input type="hidden" id="kana" name="kana" th:value="*{kana}" />
+                  <!--/* 性別 */-->
+                  <div class="form-group">
+                    <label>性別</label>
+                    <div>
+                      <p th:text="*{sexDisp}"/></p>
+                    </div>
+                  </div>
+                  <input type="hidden" id="sexDisp" name="sexDisp" th:value="*{sexDisp}" />
+
+                </div>
+                <!--/* /.card-body */-->
+                <div class="card-footer mx-auto">
+                  <button type="button" id="js-list" value="list" class="col-3 btn btn-success">一覧へ戻る</button>
+                  <button type="button" id="js-update" value="update" class="col-3 btn btn-info float-center">更新</button>
+                  <button type="button" id="js-delete" value="delete" class="col-3 btn btn-danger float-right">削除</button>
+                </div>
+                <!--/* /.card-footer */-->
+              </div>
+            </div>
+            <!--/* /.card */-->
+          </div>
+          <!--/* /.col */-->
+        </div>
+        <!--/* /.row */-->
+      </div>
+      <!--/* /.container-fluid */-->
+    </section>
+    <!--/* /.content */-->
+  </div>
+  <!--/* /.content-wrapper */-->
+  
+  <footer th:replace="common :: common_footer"></footer>
+
+  <!--/* Control Sidebar */-->
+  <aside class="control-sidebar control-sidebar-dark">
+  <!-- Control sidebar content goes here */-->
+  </aside>
+  <!--/* /.control-sidebar */-->
+</div>
+<!--/* ./wrapper */-->
+
+<script th:substituteby="common :: com_scripts"></script>
+<script type="text/javascript" src="/js/user-info-refer.js" th:src="@{/js/user-info-refer.js}"></script>
+
+</body>
+</html>

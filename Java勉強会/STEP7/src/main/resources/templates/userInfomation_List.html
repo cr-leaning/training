@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>ユーザ情報</title>
+  <meta charset="UTF-8" />
+  <style>
+  h1 { font-size:18pt; font-weight:bold; color:red; }
+  body { font-size:13pt; color:gray; margin:5px 25px; }
+  </style>
+</head>
+<body>
+  <h1>ユーザ情報一覧</h1>
+  <table th:inline="text">
+    <tr>
+      <th>ユーザID</th>
+      <th>ユーザ名</th>
+      <th>最終更新日</th>
+    </tr>
+    <tr th:each="list:${listData}">
+      <td>[[${list.id}]]</td>
+      <td>[[${list.name}]]</td>
+      <td></td>
+    </tr>
+  </table>
+  <!--
+  <input type="button" name="resisterButton" value="登録" onClick="location.href='/userInfo/register'">
+  <form method="post" action="/userInfo/register">
+    <input type="submit" value="登録" />
+  </form>
+  -->
+</body>
+</html>

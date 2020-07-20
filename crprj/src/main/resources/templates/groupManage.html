@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common :: common_header('社員情報登録 | 社員情報管理 | 社内管理システム', ~{::link}, ~{::script})">
+</head>
+
+<body class="hold-transition sidebar-mini">
+  <script th:substituteby="common2 :: com_scripts">
+  </script>
+  <script type="text/javascript" src="/js/user-info-list.js" th:src="@{/js/group-manage-list.js}">
+  </script>
+
+  <!--/* サイドバー */-->
+  <aside th:replace="common :: common_sidebar"></aside>
+  
+  <!--/* ヘッダーナビ */-->
+  <nav th:replace="common :: common_navibar"></nav>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>グループマスタ</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">グループマスタ</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">グループ</h3>
+            </div>
+            <div class="card-body">
+              <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                  <th>事業部名</th>
+                  <th>事業部長</th>
+                  <th>部員数</th>
+                  <th>更新日時</th>
+                  <th>登録日時</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <th>第一インフラ事業部</th>
+                  <th>小堀　昌夫</th>
+                  <th>２５０名</th>
+                  <th>2018年12月14日</th>
+                  <th>2018年12月14日</th>
+                </tr>
+                <tr>
+                  <td>第二インフラ事業部</td>
+                  <td>海野　真一</td>
+                  <td>１４０名</td>
+                  <td>2018年12月14日</td>
+                  <td>2018年12月14日</td>
+                </tr>
+                <tr>
+                  <td>第一アプリケーション事業部</td>
+                  <td>福原　唯</td>
+                  <td>５０２名</td>
+                  <td>2018年12月14日</td>
+                  <td>2018年12月14日</td>
+                </tr>
+                <tr>
+                  <td>第二アプリケーション事業部</td>
+                  <td>鈴木　裕規</td>
+                  <td>３００００名</td>
+                  <td>1945年12月14日</td>
+                  <td>1192年12月14日</td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+  <footer th:replace="common :: common_footer"></footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="../../plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- DataTables -->
+<script src="../../plugins/datatables/jquery.dataTables.js"></script>
+<script src="../../plugins/datatables/dataTables.bootstrap4.js"></script>
+<!-- SlimScroll -->
+<script src="../../plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="../../plugins/fastclick/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="../../dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../../dist/js/demo.js"></script>
+<!-- page script -->
+<script>
+  $(function () {
+    $("#example1").DataTable();
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false
+    });
+  });
+</script>
+</body>
+</html>

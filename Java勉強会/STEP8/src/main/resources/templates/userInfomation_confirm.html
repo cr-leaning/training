@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>ユーザ情報 登録</title>
+    <meta charset="UTF-8" />
+    <link th:substituteby="common :: com_header_links"/>
+    
+    <style>
+    body {
+        padding-top: 50px;
+    }
+    .navbar-brand {
+        font-size: 24px;
+    }
+    .form-group {
+        margin-bottom: 5px;
+    }
+    h1 {
+        margin-bottom: 20px;
+    }
+    .form-control-static {
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    </style>
+
+</head>
+<body>
+  <script th:substituteby="common :: com_scripts"></script>
+  <script type="text/javascript" src="/js/user-info-confirm.js" th:src="@{/js/user-info-confirm.js}"></script>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-2"></div>
+            <div class="col-sm-push-2 col-sm-10"><h1>ユーザ情報登録（確認）</h1></div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-2"></div>
+            <div class="col-xs-10">
+                <form id="userInfoDto" method="post" action="/userInfomation/userInfomation_register" th:action="@{/userInfomation/userInfomation_register}" th:object="${userInfoDto}" class="form-horizontal cst-form-inputform">
+                    <div class="form-group">
+                        <label for="id" class="control-label col-sm-2">ユーザID</label>
+                        <div class="col-sm-2">
+                            <p class="form-control-static" th:text="*{id}">ID</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="name" class="control-label col-sm-2">ユーザ名</label>
+                        <div class="col-sm-4">
+                            <p class="form-control-static" th:text="*{name}">name</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="name" class="control-label col-sm-2">パスワード</label>
+                        <div class="col-sm-3">
+                            <p class="form-control-static" >********</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="name" class="control-label col-sm-2">パスワード（確認）</label>
+                        <div class="col-sm-3">
+                            <p class="form-control-static" >********</p>
+                        </div>
+                    </div>
+                    
+                    <input type="hidden" name="id" id="id" th:value="*{id}"/>
+                    <input type="hidden" name="name" id="name" th:value="*{id}"/>
+                    <input type="hidden" name="password" id="password" th:value="*{password}"/>
+                    <input type="hidden" name="passwordConf" id="passwordConf" th:value="*{passwordConf}"/>
+
+                    <div class="col-xs-12"></div>
+                    <div class="text-center">
+                        <button type="button" id="js-register" value="register" class="btn btn-primary">登録</button>
+                        <button type="button" id="js-back" value="back" class="btn btn-default">戻る</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

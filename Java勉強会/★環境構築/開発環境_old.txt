@@ -1,0 +1,87 @@
+環境準備
+●開発環境
+1.Javaのダウンロード
+　http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+　Java8のJDKをインストール
+　※最新の場合、Lombokが追従しきれてなく動かない
+
+
+2.環境変数の設定
+　使用するためにJavaのbinディレクトリを追加する
+　・「Path」に{Javaインストールディレクトリ}\bin
+　・「JAVA_HOME」を新規追加し、{Javaインストールディレクトリ}\bin
+
+
+3.STS（Spring Tool Suite）のダウンロード
+　https://spring.io/tools/sts
+　SpringのためのEclipse
+　Eclipseインストール後→STSプラグインでも可能
+
+
+4.Pleiadesの設定
+　http://mergedoc.osdn.jp/
+　STSの日本語化。日本語化の為だけなので、All in Oneは入れない
+　1.「Pleiades プラグイン・ダウンロード」よりSTSのバージョンにあったものをDL
+　　（STSのサイトでベースとなったEclipseが確認出来る）
+　2.readme_pleiadesに従って作業を行う
+　　（EclipseをSTSに置き換えて考える）
+
+
+5.Git
+　・Gitについて
+　　http://www.backlog.jp/git-guide/intro/intro1_1.html
+　　上記を参考にローカルリポジトリ作成まですすめる
+　・操作ツールとしてトータスgitをダウンロードしてインストール
+　　https://tortoisegit.org/download/
+
+
+6.maven
+　https://maven.apache.org/download.cgi
+　・上記からbinaryをダウンロード後、展開
+　・「Path」に{maven展開ディレクトリ}\bin　を追加
+
+  【参考】gradle（mavenの類似ツールでgroovyベース。mavenより理解しやすく使いやすい）
+　STSのEclipseマーケットを選択し、検索でBuildshipを入力し、出てきた「Buildship Gradle Integration」を追加
+　同様にGradleで検索し、以下の2つもインストールする
+　Minimalist Gradle Editor　…　シンタックスハイライト
+　Nodeclipse/Enide Gradle for Eclipse　…　IDEパックと同等と思われるRunメニュー
+
+
+7.STSの設定
+　・STS.iniの設定
+　　・メモリの設定（メモリに余裕があれば最小と最大は同値が好ましい）
+　　　-Xms　最小値（起動時）
+　　　-Xmx　最大値
+　・googleStyleguide（コーディングスタイル）の設定
+　　1.https://github.com/google/styleguideで「Clone or download」を選択し、URLをコピー
+　　2.STSから「ウィンドウ」→「パースペクティブ」でGitを開く
+　　3.右クリックでリポジトリパスの貼り付けを選択
+　　4.ロケーション情報が設定されていることを確認し、次へ
+　　URI:https://github.com/google/styleguide.git
+　　ホスト:github.com
+　　リポジトリ・パス:/google/styleguide
+　　5.後はそのまま画面を進めてリポジトリ保存箇所を設定後、完了
+　　6.STSから「ウィンドウ」→「設定」→「Java」→「コードスタイル」→「フォーマッター」を開く
+　　7.インポートから先程作成したリポジトリから「eclipse-java-google-style.xml」を選択し、適用
+　・保管アクションの設定
+　　・STSから「ウィンドウ」→「設定」→「Java」→「エディタ」→「保管アクション」
+　　　インポートの編成にチェック
+　・スペースの表示
+　　・STSから「ウィンドウ」→「設定」→「一般」→「エディタ」→「テキスト・エディタ」
+　　　・行番号の表示にチェック
+　　　・空白文字の表示にチェック（可視性はお好みで設定）
+　・eclipseでのlombokの有効化
+　　http://qiita.com/opengl-8080/items/671ffd4bf84fe5e32557
+
+8.lombokの設定
+　Eclipseでlombokが使えるように設定する。
+　1.以下からダウンロード
+　　https://projectlombok.org/
+　2.ダウンロードしたjarをダブルクリック
+　3.Specify location... をクリックしてSTS.exeが存在するフォルダを選択
+　4.Install / Update をクリック
+　5.STSの再起動
+
+9.SpotBugsの設定
+　STSのEclipseマーケットを選択し、検索でSpotBugsを入力し、インストール
+　たまにプロジェクトを右クリックで「バグを検索」を行うこと

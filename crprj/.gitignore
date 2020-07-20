@@ -1,0 +1,31 @@
+.gradle
+/build/
+!gradle/wrapper/gradle-wrapper.jar
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+/bin/
+/.metadata/
+<<<<<<< HEAD
+/.metadata/
+=======
+>>>>>>> f7c75d1765c09ca1819508f9fdb9fa85129cc296

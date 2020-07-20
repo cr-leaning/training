@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>ユーザ情報登録</title>
+    <meta charset="UTF-8" />
+    <link th:substituteby="common :: com_header_links"/>
+    
+    <style>
+    body {
+        padding-top: 50px;
+    }
+    .navbar-brand {
+        font-size: 24px;
+    }
+    .form-group {
+        margin-bottom: 5px;
+    }
+    h1 {
+        margin-bottom: 20px;
+    }
+    .cst-form-inputform {
+        margin-bottom: 20px;
+    }
+    </style>
+    
+</head>
+<body>
+    <script th:substituteby="common :: com_scripts"></script>
+    <script type="text/javascript" src="/js/user-info-regist.js" th:src="@{/js/user-info-regist.js}"></script>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-2"></div>
+            <div class="col-sm-push-2 col-sm-10"><h1>ユーザ情報 登録</h1></div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-2"></div>
+            <div class="col-xs-10">
+                <form id="userInfoDto" method="post" action="/userInfomation/userInfomation_confirm" th:action="@{/userInfomation/userInfomation_confirm}" th:object="${userInfoDto}" class="form-horizontal cst-form-inputform">
+                    <div class="form-group" th:classappend="${#fields.hasErrors('*{id}')} ? 'has-error' : ''">
+                        <label for="id" class="control-label col-sm-2">ユーザID</label>
+                        <div class="col-sm-10">
+                            <div class="row"><div class="col-sm-2"><input type="text" name="id" id="id" class="form-control input-sm" value="" placeholder="ユーザID" th:field="*{id}"/></div></div>
+                            <div class="row" th:if="${#fields.hasErrors('*{id}')}"><div class="col-sm-10"><p class="form-control-static text-danger"><small th:errors="*{id}"></small></p></div></div>
+                        </div>
+                    </div>
+                    <div class="form-group" th:classappend="${#fields.hasErrors('*{name}')} ? 'has-error' : ''">
+                        <label for="name" class="control-label col-sm-2">ユーザ名</label>
+                        <div class="col-sm-10">
+                            <div class="row"><div class="col-sm-4"><input type="text" name="name" id="name" class="form-control input-sm" value="" placeholder="ユーザ名" th:field="*{name}"/></div></div>
+                            <div class="row" th:if="${#fields.hasErrors('*{name}')}"><div class="col-sm-10"><p class="form-control-static text-danger"><small th:errors="*{name}"></small></p></div></div>
+                        </div>
+                    </div>
+                    <div class="form-group" th:classappend="${#fields.hasErrors('*{password}')} ? 'has-error' : ''">
+                        <label for="name" class="control-label col-sm-2">パスワード</label>
+                        <div class="col-sm-10">
+                            <div class="row"><div class="col-sm-3"><input type="text" name="password" id="password" class="form-control input-sm" value="" placeholder="パスワード" th:field="*{password}"/></div></div>
+                            <div class="row" th:if="${#fields.hasErrors('*{password}')}"><div class="col-sm-10"><p class="form-control-static text-danger"><small th:errors="*{password}"></small></p></div></div>
+                        </div>
+                    </div>
+                    <div class="form-group" th:classappend="${#fields.hasErrors('*{passwordConf}')} ? 'has-error' : ''">
+                        <label for="name" class="control-label col-sm-2">パスワード（確認）</label>
+                        <div class="col-sm-10">
+                            <div class="row"><div class="col-sm-3"><input type="text" name="passwordConf" id="passwordConf" class="form-control input-sm" value="" placeholder="パスワード（確認）" th:field="*{passwordConf}"/></div></div>
+                            <div class="row" th:if="${#fields.hasErrors('*{passwordConf}')}"><div class="col-sm-10"><p class="form-control-static text-danger"><small th:errors="*{password}"></small></p></div></div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12"></div>
+                    <div class="text-center">
+                        <button type="button" id="js-confirm" value="confirm" class="btn btn-primary">確認</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

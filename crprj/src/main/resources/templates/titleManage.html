@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head >
+  <title>肩書マスタ</title>
+  <meta charset="UTF-8" />
+  <link th:substituteby="common2 :: com_header_links"/>
+</head>
+<body>
+  <script th:substituteby="common2 :: com_scripts"></script>
+  <script type="text/javascript" src="/js/user-info-list.js" th:src="@{/js/group-manage-list.js}"></script>
+  
+  <h1>肩書マスタ</h1>
+  <div>
+    <p>
+      <input type="button" value="登録" onclick="location.href='/groupManage/register'" />
+      <input type="button" value="更新" onclick="location.href='/groupManage/update'" />
+      <input type="button" value="削除" onclick="location.href='/groupManage/delete'" />
+    </p>
+  </div>
+  <div>
+    <table id="list"></table>
+    <div id = "pager"></div>
+  </div>
+  <input type="hidden" id="listData" name="listData" th:value="${listData}" />
+</body>
+</html>

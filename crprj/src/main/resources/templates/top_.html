@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head >
+  <title>TOP</title>
+  <meta charset="UTF-8" />
+  <link th:substituteby="common :: com_header_links"/>
+</head>
+<body>
+  <script th:substituteby="common :: com_scripts"></script>
+  <script type="text/javascript" src="/js/user-info-list.js" th:src="@{/js/user-info-list.js}"></script>
+  
+  <h1>暫定画面</h1>
+  <div>
+    <p>
+      <input type="button" value="ユーザ情報" onclick="location.href='/userInfomation/'" />
+      <input type="button" value="役職管理" onclick="location.href='/positionManage/'" />
+      <input type="button" value="肩書管理" onclick="location.href='/titleManage/'" />
+      <input type="button" value="グループ管理" onclick="location.href='/groupManage/'" />
+    </p>
+  </div>
+  <div>
+    <table id="list"></table>
+    <div id = "pager"></div>
+  </div>
+  <input type="hidden" id="listData" name="listData" th:value="${listData}" />
+</body>
+</html>

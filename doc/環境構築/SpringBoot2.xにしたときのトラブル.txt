@@ -1,0 +1,8 @@
+SpringBootを1.4→2.0に上げた際、以下のエラーが出て進まなくなった
+Synchronize Gradle projects with workspace failed due to an error in the referenced Gradle build.
+Could not fetch model of type 'EclipseProject' using Gradle distribution 'https://services.gradle.org/distributions/gradle-2.13-bin.zip'.
+
+★解決策？
+Eclipse→ウィンドウ→設定→Gradle　
+にて、GradleのVersionを4.x以上に設定
+

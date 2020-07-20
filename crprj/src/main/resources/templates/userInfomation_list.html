@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common :: common_header('社員情報一覧 | 社員情報管理 | 社内管理システム', ~{::link}, ~{::script})">
+  <meta charset="utf-8">
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+
+  <!--/* Navbar */-->
+  <nav th:replace="common :: common_navibar"></nav>
+  <!--/* /.navbar */-->
+
+  <!--/* Main Sidebar Container */-->
+  <aside th:replace="common :: common_sidebar"></aside>
+
+  <!--/* Content Wrapper. Contains page content */-->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) */-->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">社員情報一覧</h1>
+          </div>
+          <!--/* /.col */-->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/">Home</a></li>
+              <li class="breadcrumb-item active">社員情報一覧</li>
+            </ol>
+          </div>
+          <!--/* /.col */-->
+        </div>
+        <!--/* /.row */-->
+      </div>
+      <!--/* /.container-fluid */-->
+    </div>
+    <!--/* /.content-header */-->
+
+    <!--/* Main content */-->
+    <section class="content">
+      <div class="container-fluid">
+        <!--/* Small boxes (Stat box) */-->
+        <div class="row mb-3">
+          <div class="col-2">
+            <button type="button" class="btn btn-block btn-success btn-lg" onclick="location.href='/userInfomation/register'">
+              <i class="fa fa-user-plus mt-2"></i>
+              <small>新規登録</small>
+            </button>
+          </div>
+          <!--/* ./col -->
+          <div class="col-2">
+          </div>
+          <!--/* ./col */-->
+          <div class="col-2">
+          </div>
+          <!--/* ./col */-->
+          <div class="col-2">
+          </div>
+          <!--/* ./col */-->
+          <div class="col-2">
+            <button type="button" id="js-export" value="export" class="btn btn-block btn-info btn-lg">
+              <i class="fa fa-download"></i>
+              Export
+            </button>
+          </div>
+          <!--/* ./col */-->
+          <div class="col-2">
+            <button type="button" class="btn btn-block bg-danger btn-lg" onclick="location.href='/userInfomation/deleteAll'">
+              <i class="fa fa-user-times"></i>
+              <small>一括削除</small>
+            </button>
+          </div>
+          <!--/* ./col */-->
+
+        </div>
+        <!--/* /.row */-->
+
+        <div class="row">
+        </div>
+        <!--/* /.row */-->
+
+        <div class="row">
+          <div class="col-12">
+            <div>
+              <table id="userInfoList" class="table table-responsive table-hover table-striped table-condensed">
+              </table>
+              <div id="pager"></div>
+            </div>
+          </div>
+          <!--/* /.col */-->
+        </div>
+        <!--/* /.row */-->
+      </div>
+      <!--/* /.container-fluid */-->
+    </section>
+    <!--/* /.content */-->
+  </div>
+  <!--/* /.content-wrapper */-->
+  
+  <footer th:replace="common :: common_footer"></footer>
+
+  <!--/* Control Sidebar */-->
+  <aside class="control-sidebar control-sidebar-dark">
+  <!--/* Control sidebar content goes here -->
+  </aside>
+  <!--/* /.control-sidebar */-->
+</div>
+<!--/* ./wrapper */-->
+
+<input type="hidden" id="userInfoListData" name="userInfoListData" th:value="${userInfoListData}" />
+
+<script th:substituteby="common :: com_scripts"></script>
+<script type="text/javascript" src="/js/user-info-list.js" th:src="@{/js/user-info-list.js}"></script>
+
+</body>
+</html>

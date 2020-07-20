@@ -1,0 +1,15 @@
+Gitのリポジトリ
+https://bitbucket.org/computerrescuercom/training
+
+※以下は「TortoiseGit」でGUIから行ってもOK
+
+・まずはクローンを行い、ローカルリポジトリを作成
+cd （任意のディレクトリ）
+git clone https://yuuki-suzuki@bitbucket.org/computerrescuercom/training.git
+
+・もしpushでこんなエラーが出たら、、、
+fatal: refusing to merge unrelated histories
+git did not exit cleanly (exit code 128)
+
+初めてGitHubリポジトリにpushしたらrejectedエラーになったときの対応メモ
+http://qiita.com/takanatsu/items/fc89de9bd11148da1438

@@ -1,0 +1,64 @@
+DB準備（MariaDB）（Windows）
+1.MariaDBの入手
+　https://downloads.mariadb.org/
+
+2.ファイルをCドライブの直下に移動して解凍後、フォルダ名を「mariaDB」に変更
+
+3.環境変数：PathにC:\mariaDB\bin　を追加
+
+4.メモリに応じてmy.iniを作成する
+　※サンプルあり
+
+5.InnoDBの設定追加
+　・innodb_… で始まる行のコメントアウトを外す
+　・[mysqld]に以下を追加
+　　default-storage-engine=InnoDB
+　　innodb_file_per_table  
+　　innodb_file_format=Barracuda
+　※この際、データファイルの場所を変更したら、C:\mariaDB\data のファイルを
+　　その場所へ、全てコピーする。
+
+6.日本語設定の追加
+　・[client]に以下を追加
+　　default-character-set = utf8mb4
+　・[mysqld]に以下を追加
+　　character-set-server = utf8mb4
+　　skip-character-set-client-handshake
+
+7.デーモンの起動
+  mysqld --console
+　※起動後はコマンドプロンプトを閉じないこと
+
+※以降は別のコマンドプロンプトを立ち上げて行う
+8.rootパスワード設定
+　以下のコマンドを実行　
+mysql -u root
+update mysql.user set password=password('rootCr12!') where user = 'root';
+flush privileges;
+
+9.データベースの作成
+　以下のコマンドを実行
+CREATE DATABASE cr_prj DEFAULT CHARACTER SET utf8mb4;
+
+10.ユーザの作成
+　以下のコマンドを実行
+CREATE USER crUser@localhost IDENTIFIED BY "crUser123!";
+GRANT ALL ON cr_prj.* TO crUser@localhost;
+
+10.各テーブルの作成
+　同フォルダにある以下のCreate文を実行する
+　※ファイルを開いてコピペ実行でOK
+\training\Java勉強会\★環境構築\createTable_userInfo.sql
+\training\Java勉強会\★環境構築\createTable_groupMst.sql
+\training\Java勉強会\★環境構築\createTable_positionMst.sql
+\training\Java勉強会\★環境構築\createTable_titleMst.sql
+
+
+
+以上
+
+※以降のログインは「mysql -u ユーザ名 -p データベース名」
+  例）mysql -u crUser -p cr_prj
+  デーモンの終了は「mysqladmin -u ユーザ名 -p shutdown」
+  
+  

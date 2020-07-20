@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common :: common_header('社員情報更新 | 社員情報管理 | 社内管理システム', ~{::link}, ~{::script})">
+  <meta charset="utf-8">
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+
+  <!--/* Navbar */-->
+  <nav th:replace="common :: common_navibar"></nav>
+  <!--/* /.navbar */-->
+
+  <!--/* Main Sidebar Container */-->
+  <aside th:replace="common :: common_sidebar"></aside>
+
+  <!--/* Content Wrapper. Contains page content */-->
+  <div class="content-wrapper">
+    <!--/* Content Header (Page header) */-->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">社員情報更新</h1>
+          </div>
+          <!--/* /.col */-->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/">Home</a></li>
+              <li class="breadcrumb-item"><a href="/userInfomation/">社員情報一覧</a></li>
+              <li class="breadcrumb-item active">社員情報更新</li>
+            </ol>
+          </div>
+          <!--/* /.col */-->
+        </div>
+        <!--/* /.row */-->
+      </div>
+      <!--/* /.container-fluid */-->
+    </div>
+    <!--/* /.content-header */-->
+
+    <!--/* Main content */-->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <!--/* column */-->
+          <div class="col-7 mx-auto">
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">社員情報更新</h3>
+              </div>
+              <!--/* /.card-header */-->
+              <!--/* form start */-->
+              <form role="form"  id="userInfoDto" method="post" action="/userInfomation/update" th:action="@{/userInfomation/confirm}" th:object="${userInfoDto}">
+                <div class="card-body">
+                  <!--/* ユーザSeqNo */-->
+                  <input type="hidden" name="seqNo" id="seqNo" th:value="*{seqNo}"/>
+                  <!--/* ユーザID */-->
+                  <div class="form-group" th:classappend="${#fields.hasErrors('*{userId}')} ? 'has-error' : ''">
+                    <label for="userId">ユーザID</label>
+                    <div>
+                      <input type="text" name="userId" id="userId" class="form-control" value="" placeholder="ユーザID" th:field="*{userId}"/>
+                      <div th:if="${#fields.hasErrors('*{userId}')}"><p class="form-control-static text-danger"><small th:errors="*{userId}"></small></p></div>
+                    </div>
+                  </div>
+                  <!--/* 名前 */-->
+                  <div class="form-group" th:classappend="${#fields.hasErrors('*{name}')} ? 'has-error' : ''">
+                    <label for="name">名前</label>
+                    <div>
+                      <input type="text" name="name" id="name" class="form-control" value="" placeholder="名前" th:field="*{name}"/>
+                      <div th:if="${#fields.hasErrors('*{name}')}"><p class="form-control-static text-danger"><small th:errors="*{name}"></small></p></div>
+                    </div>
+                  </div>
+                  <!--/* 名前（カナ） */-->
+                  <div class="form-group" th:classappend="${#fields.hasErrors('*{kana}')} ? 'has-error' : ''">
+                    <label for="kana">名前（カナ）</label>
+                    <div>
+                      <input type="text" name="kana" id="kana" class="form-control" value="" placeholder="名前（カナ）" th:field="*{kana}"/>
+                      <div th:if="${#fields.hasErrors('*{kana}')}"><p class="form-control-static text-danger"><small th:errors="*{kana}"></small></p></div>
+                    </div>
+                  </div>
+                  <!--/* 性別 */-->
+                  <div class="form-group" th:classappend="${#fields.hasErrors('*{sex}')} ? 'has-error' : ''">
+                    <label for="sex">性別</label>
+                    <div>
+                      <div class="form-check form-check-inline">
+                        <input type="radio" name="sex" id="male" class="form-check-input" value="1" th:field="*{sex}" th:checked="${1 == 1}"/>
+                        <label class="form-check-label" for="male">男性</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input type="radio" name="sex" id="female" class="form-check-input" value="2" th:field="*{sex}"/>
+                        <label class="form-check-label" for="female">女性</label>
+                      </div>
+                    </div>
+                    <div th:if="${#fields.hasErrors('*{sex}')}"><p class="form-control-static text-danger"><small th:errors="*{sex}"></small></p></div>
+                  </div>
+
+                  <!--/* sample */-->
+                  <!--/* email */-->
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                  </div>
+                  <!--/* text input */-->
+                  <div class="form-group">
+                    <label>Text</label>
+                    <input type="text" class="form-control" placeholder="Enter ...">
+                  </div>
+                  <!--/* textarea */-->
+                  <div class="form-group">
+                    <label>Textarea</label>
+                    <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                  </div>
+                  <!--/* select */-->
+                  <div class="form-group">
+                    <label>Select</label>
+                    <select class="form-control">
+                      <option>option 1</option>
+                      <option>option 2</option>
+                      <option>option 3</option>
+                      <option>option 4</option>
+                      <option>option 5</option>
+                    </select>
+                  </div>
+                  <!--/* Select multiple */-->
+                  <div class="form-group">
+                    <label>Select Multiple</label>
+                    <select multiple class="form-control">
+                      <option>option 1</option>
+                      <option>option 2</option>
+                      <option>option 3</option>
+                      <option>option 4</option>
+                      <option>option 5</option>
+                    </select>
+                  </div>
+                </div>
+                <!--/* /.card-body */-->
+                <div class="card-footer mx-auto">
+                  <button type="submit" id="js-confirm" value="confirm" class="col-3 btn btn-info">更新</button>
+                  <button type="button" id="js-list" value="list" class="col-3 btn btn-default float-right">キャンセル</button>
+                </div>
+                <!--/* /.card-footer */-->
+                <input type="hidden" id="mode" name="mode" th:value="*{mode}" />
+              </form>
+            </div>
+            <!--/* /.card */-->
+          </div>
+          <!--/* /.col */-->
+          
+        </div>
+        <!--/* /.row */-->
+      </div>
+      <!--/* /.container-fluid */-->
+    </section>
+    <!--/* /.content */-->
+  </div>
+  <!--/* /.content-wrapper */-->
+  
+  <footer th:replace="common :: common_footer"></footer>
+
+  <!--/* Control Sidebar */-->
+  <aside class="control-sidebar control-sidebar-dark">
+  <!-- Control sidebar content goes here */-->
+  </aside>
+  <!--/* /.control-sidebar */-->
+</div>
+<!--/* ./wrapper */-->
+
+<input type="hidden" id="userInfoDto" name="userInfoDto" th:value="${userInfoDto}" />
+
+<script th:substituteby="common :: com_scripts"></script>
+<script type="text/javascript" src="/js/user-info-update.js" th:src="@{/js/user-info-update.js}"></script>
+
+</body>
+</html>

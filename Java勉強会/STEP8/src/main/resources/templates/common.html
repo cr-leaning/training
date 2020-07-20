@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<!-- 
+<head th:fragment="common_header(title, links, scripts)">
+  <title th:replace="${title}">共通ヘッダ</title>
+  <meta charset="UTF-8" />
+
+  <link type="text/css" href="/css/bootstrap/bootstrap.min.css" th:href="@{/css/bootstrap/bootstrap.min.css}" rel="stylesheet"/>
+  <link type="text/css" href="/js/jquery-ui/jquery-ui.css" th:href="@{/js/jquery-ui/jquery-ui.css}" rel="stylesheet" />
+  <link type="text/css" href="/js/jqgrid/css/ui.jqgrid.css" th:href="@{/js/jqgrid/css/ui.jqgrid.css}" rel="stylesheet" />
+  <link type="text/css" href="/css/common.css" th:href="@{/css/common.css}" rel="stylesheet"/>
+
+  <script type="text/javascript" src="/js/jquery-3.1.1.js" th:src="@{/js/jquery-3.1.1.js}"></script>
+  <script type="text/javascript" src="/js/jquery-ui/jquery-ui.min.js" th:src="@{/js/jquery-ui/jquery-ui.min.js}"></script>
+  <script type="text/javascript" src="/js/jqgrid/js/i18n/grid.locale-ja.js" th:src="@{/js/jqgrid/js/i18n/grid.locale-ja.js}"></script>
+  <script type="text/javascript" src="/js/jqgrid/js/jquery.jqGrid.min.js" th:src="@{/js/jqgrid/js/jquery.jqGrid.min.js}"></script>
+
+  <th:block th:replace="${links}" />
+  <th:block th:replace="${scripts)}" />
+</head>
+-->
+<head th:fragment="com_header_links" th:remove="tag">
+  <link type="text/css" href="/css/common.css" th:href="@{/css/common.css}" rel="stylesheet"/>
+  <link type="text/css" href="/css/bootstrap/bootstrap.min.css" th:href="@{/css/bootstrap/bootstrap.min.css}" rel="stylesheet"/>
+  <link type="text/css" href="/js/jquery-ui/jquery-ui.css" th:href="@{/js/jquery-ui/jquery-ui.css}" rel="stylesheet" />
+  <link type="text/css" href="/js/jqgrid/css/ui.jqgrid.css" th:href="@{/js/jqgrid/css/ui.jqgrid.css}" rel="stylesheet" />
+</head>
+<body>
+  <div th:fragment="com_scripts" th:remove="tag">
+    <script type="text/javascript" src="/js/jquery-3.1.1.js" th:src="@{/js/jquery-3.1.1.js}"></script>
+    <script type="text/javascript" src="/js/bootstrap/bootstrap.min.js" th:src="@{/js/bootstrap/bootstrap.min.js}"></script>
+    <script type="text/javascript" src="/js/jquery-ui/jquery-ui.min.js" th:src="@{/js/jquery-ui/jquery-ui.min.js}"></script>
+    <script type="text/javascript" src="/js/jqgrid/js/i18n/grid.locale-ja.js" th:src="@{/js/jqgrid/js/i18n/grid.locale-ja.js}"></script>
+    <script type="text/javascript" src="/js/jqgrid/js/jquery.jqGrid.min.js" th:src="@{/js/jqgrid/js/jquery.jqGrid.min.js}"></script>
+  </div>
+</body>
+</html>

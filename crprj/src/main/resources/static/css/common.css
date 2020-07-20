@@ -1,0 +1,25 @@
+@CHARSET "UTF-8";
+
+.btn-icon {
+  position:absolute;
+  right: 10px;
+  color:rgba(0,0,0,.15);
+}
+
+.ui-jqgrid.ui-jqgrid-bootstrap {
+  border: 1px solid #003380;
+}
+.ui-jqgrid.ui-jqgrid-bootstrap .ui-jqgrid-caption {
+  background-color: #e6f0ff;
+}
+.ui-jqgrid.ui-jqgrid-bootstrap .ui-jqgrid-hdiv {
+  background-color: #cce0ff;
+}
+
+.ui-search-input > input::-ms-clear {
+    display: none;
+}
+
+.has-error .form-control {
+    background-color: #fff5ee;
+}
