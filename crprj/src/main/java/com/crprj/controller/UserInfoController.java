@@ -51,6 +51,11 @@ public class UserInfoController {
   @Qualifier("UserInfo")
   private IBaseService<UserInfoDto, UserInfoListDto> userInfoService;
 
+  @Autowired
+  @Qualifier("UserInfo")
+  private IBaseService<UserInfoDto, UserInfoListDto> userInfoService;
+
+
   /**
    * ユーザ情報一覧画面
    * 
@@ -61,7 +66,13 @@ public class UserInfoController {
   public String list(Model model) {
     log.debug(ScreenConst.SCREEN_LIST + " start");
     UserInfoListDto userInfoListDto = new UserInfoListDto();
-    
+
+    BaseService baseService = new UserInfoService();
+
+    IBaseService service1 = new UserInfoService();
+    IBaseService service2 = new PositionInfoServise();
+
+
     userInfoService.getListData(userInfoListDto);
 
     model.addAttribute(ItemConst.USER_INFO_LIST_DATA, new Gson().toJson(userInfoListDto.getUserInfoList()));

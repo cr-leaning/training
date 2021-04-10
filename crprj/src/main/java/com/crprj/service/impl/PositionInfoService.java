@@ -1,4 +1,4 @@
-/*package com.crprj.service.impl;
+package com.crprj.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -113,4 +113,3 @@ public class PositionInfoServise extends BaseService
   }
 
 }
-*/
